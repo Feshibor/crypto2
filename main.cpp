@@ -262,7 +262,7 @@ class Context {
     void removePadding(Bytes& data) const {
         if (padding == Padding::Zeros) {
             while (!data.empty() && data.back() == 0) data.pop_back();
-            return; // Нулевые байты на конце исходного файла при Zeros не восстановить.
+            return; 
         }
         if (data.empty()) throw std::runtime_error("missing padding");
         int count = data.back(), n = cipher.blockSize();
